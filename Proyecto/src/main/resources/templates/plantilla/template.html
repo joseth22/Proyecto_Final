@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+        <meta charset="utf-8">
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+            />
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+            />
+        <!-- MDB --> 
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
+            rel="stylesheet"
+            />
+
+        <link rel="stylesheet" th:href="@{/css/partidos.css}"/>
+
+    </head>
+
+
+    <body>
+
+
+        <<!-- NAV BAR -->>
+        
+        <header th:fragment="header">
+
+            <nav>
+                <ul>
+                    <div class="topnav">
+                        <a th:href="@{/home}" th:text="#{articulo.home}">Conocenos</a>
+                        <a th:href="@{/inicio}">Home</a>
+                        <a th:href="@{/conciertos}" th:text="#{articulo.conciertos}">Concierto</a>
+                        <a th:href="@{/partidos}" th:text="#{articulo.partidos}">Partidos</a>
+                        <a th:href="@{/teatro}" th:text="#{articulo.teatro}">Teatro</a>
+                        <a th:href="@{/historiales}" th:text="#{articulo.historiales}">Historial</a>
+                        <a th:href="@{/compraR}" th:text="#{articulo.compra}">Compras</a>
+                        <a th:href="@{/login}">Login</a>
+
+                    </div>
+                </ul>            
+            </nav>
+        </header>
+
+    </body>
+
+
+    <!-- Footer -->
+    <footer th:fragment="footer" class="bg-yellow text-white">
+        <!-- Grid container -->
+        <div class="text-center p-3 text-center">
+            <!-- Section: Social media -->
+
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a href="#">
+                    <image class="botonesRedes facebook"
+                           src="images/facebook.png" alt="alt"/>
+                </a>
+                <!-- Twitter -->
+                <a href="#">
+                    <image class="botonesRedes gorjeo"
+                           src="images/gorjeo.png" alt="alt"/>
+                </a>
+                <!-- Google -->
+                <a href="#">
+                    <image class="botonesRedes cromo"
+                           src="images/cromo.png" alt="alt"/>
+                </a>
+                <!-- Instagram -->
+                <a href="#">
+                    <image class="botonesRedes instagram"
+                           src="images/instagram.png" alt="alt"/>
+                </a>
+                <!-- Tiktok -->
+                <a href="#">
+                    <image class="botonesRedes tik-tok"
+                           src="images/tik-tok.png" alt="alt"/>
+                </a>
+
+                <br>
+                © 2023
+
+            </section>
+
+            <a class="text-white" href="https://mdbootstrap.com/"></a>
+
+            <a th:with="urlBuilder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}"
+               th:href="${urlBuilder.replaceQueryParam('lang','es').toUriString()}">ES</a>
+            <a th:with="urlBuilder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}"
+               th:href="${urlBuilder.replaceQueryParam('lang','en').toUriString()}">EN</a>
+        </div>
+
+
+
+        <!-- Copyright -->
+    </footer>
+
+
+
+
+</html>

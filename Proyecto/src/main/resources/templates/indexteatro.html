@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="plantilla/template::head"></head>  
+    <link rel="stylesheet" href="css/partidos.css">
+
+    <body>
+
+        <header th:replace="plantilla/template::header"></header>
+
+    <tbody>
+    <th:block th:each="user : ${teatrodataset}">
+
+        <tr>
+        <div class="cartasposc">
+
+            <div class="card" border style="width: 18rem;">
+                <h1 th:text="#{plantilla.teatro}"></h1>
+                <div class="card-body">
+
+                    <p class="card-text"><td th:text="${user.getNombre}"></td></p>
+                    <p class="card-text"><td th:text="${user.getFecha}"></td></p>
+                    <p class="card-text"><td th:text="${user.getUbicacion}"></td></p>
+                    <p class="card-text"><td th:text="${user.getHora}"></td></p>
+
+                    <img th:src="${user.getImagen}" id="imagen" class="card-img-top"/>
+                    <p class="card-text"><td th:text="${user.getDescripcion}"></td></p>
+
+                </div>
+            </div>
+        </div>
+
+    </tr> 
+</th:block>
+</tbody>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+</body>
+<footer th:replace="plantilla/template::footer"></footer>
+</html>
