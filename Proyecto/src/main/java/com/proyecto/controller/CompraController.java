@@ -18,7 +18,7 @@ public class CompraController {
     @Autowired
     private ICompraService compraService;
 
-    @GetMapping("/compras")                         //  RESULTADO
+    @GetMapping("/compras")                         
     public String indexCompras(Model model) {
         List<Compra> listaCompra = compraService.getAllCompra();
         model.addAttribute("titulo", "Tabla Compra");
@@ -26,7 +26,7 @@ public class CompraController {
         return "resultadocompra";
     }
 
-    @GetMapping("/compraR")                                 //LLAMADO
+    @GetMapping("/compraR")                                 
     public String crearCompra(Model model) {
         List<Compra> listaCompra = compraService.getAllCompra();
         model.addAttribute("compradataset", new Compra());
@@ -47,7 +47,7 @@ public class CompraController {
         return "compraR";
     }
 
-    @GetMapping("/deleteCompra/{id}") //eliminar elemento
+    @GetMapping("/deleteCompra/{id}") 
     public String eliminarCompra(@PathVariable("id") Long id) {
         compraService.delete(id);
         return "redirect:/compras";
