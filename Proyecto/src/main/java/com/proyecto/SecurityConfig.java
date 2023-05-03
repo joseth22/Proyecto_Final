@@ -16,14 +16,14 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter { //Da acceso a paginas deseadas por los roles de usuarios
+public class SecurityConfig extends WebSecurityConfigurerAdapter { 
 
     @Autowired
     private UserService userDetailsService;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();               //objeto
+        return new BCryptPasswordEncoder();              
     }
 
     @Bean
@@ -35,9 +35,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //Da acceso a
     DaoAuthenticationProvider authenticationProvider() {
 
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());                        //seteo la password
-        daoAuthenticationProvider.setUserDetailsService(getUserService());                      //crear un nuevo objeto de userService
-        return daoAuthenticationProvider;                                                       //lo devuelvo
+        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());                        
+        daoAuthenticationProvider.setUserDetailsService(getUserService());                      
+        return daoAuthenticationProvider;                                                       
     }
 
     @Bean
@@ -61,15 +61,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //Da acceso a
         http.authorizeRequests()
                 .antMatchers("/admin", "/login","/historiales","/compraR",
                         "/compras", "/home", "/inicio", "/resCompra", "/partidoAdmin", "/teatroAdmin", 
-                        "/teatro", "/partidos", "/conciertos", "/conciertoN", "/partidoN", "/teatroN")                                         //Permiso de poder ir a 
-                .hasRole("ADMIN")                                                            //Si tiene el rol de "ADMIN"
+                        "/teatro", "/partidos", "/conciertos", "/conciertoN", "/partidoN", "/teatroN")                           
+                .hasRole("ADMIN")                                                            
                 .antMatchers("/login", "/historiales", "/compraR", "/compras",
-                        "/home", "/inicio", "/resCompra", "/teatro", "/partidos", "/conciertos")                             //Quiero que pueda ir a "/home", "/".... 
-                .hasAnyRole("USER", "ADMIN")                                                 //Si tiene el rol de "USER"
+                        "/home", "/inicio", "/resCompra", "/teatro", "/partidos", "/conciertos")                             
+                .hasAnyRole("USER", "ADMIN")                                                 
                 .anyRequest().authenticated()                                               
                 .and()
                 .formLogin()
-                .loginPage("/login").permitAll().defaultSuccessUrl("/home", true);           //A cual ruta dirije el login y si es valido redirijalo a "/home".
+                .loginPage("/login").permitAll().defaultSuccessUrl("/home", true);           
     } 
     
     
