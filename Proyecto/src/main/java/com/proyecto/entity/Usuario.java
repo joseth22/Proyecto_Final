@@ -11,16 +11,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuario")
 public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+    @Column(name = "nombre")
     private String nombreUsuario;
+    @Column(name = "email")
     private String emailUsuario;
 
+    @Column(name = "password")
     private String password;
+    @Column(name = "active")
     private int active;
     private String roles = "";
     private String permisos = "";
@@ -84,9 +89,9 @@ public class Usuario implements Serializable {
         this.permisos = permisos;
     }
 
-    public List<String> getRoleList() {                      //Estos métodos guardan los valores de la base de datos en una lista
+    public List<String> getRoleList() {                     
         if (this.roles.length() > 0) {
-            return Arrays.asList(this.roles.split(","));     //Donde encuentre una "," separe. 
+            return Arrays.asList(this.roles.split(","));     
         }
         return new ArrayList<>();
     }
