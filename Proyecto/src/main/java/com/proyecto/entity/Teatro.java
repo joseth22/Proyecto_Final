@@ -13,12 +13,19 @@ public class Teatro implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+    @Column(name = "nombre")
     private String nombre;
+    @Column(name = "fecha")
     private String fecha;
+    @Column(name = "hora")
     private String hora;
+    @Column(name = "ubicacion")
     private String ubicacion;
+    @Column(name = "descripcion")
     private String descripcion;
+    @Column(name = "imagen")
     private String imagen;
 
     public long getId() {
