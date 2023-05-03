@@ -8,17 +8,24 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "compra")
+@Table(name = "transacciones")
 public class Compra implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+    @Column(name = "cantidad")
     private int cantidad;
+    @Column(name = "area")
     private String area;
+    @Column(name = "evento")
     private String evento;
+    @Column(name = "monto")
     private String monto;
+    @Column(name = "tarjeta")
     private String tarjeta;
+    @Column(name = "cvv")
     private String cvv;
 
     public long getId() {
