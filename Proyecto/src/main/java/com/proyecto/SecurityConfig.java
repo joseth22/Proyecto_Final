@@ -13,10 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-/**
- * 
- * @author Golcher
- */
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter { //Da acceso a paginas deseadas por los roles de usuarios
@@ -48,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //Da acceso a
         return new AppAuthenticationSuccessHandler();
     }
 
-    public SecurityConfig(UserService userPrincipalDetailsService) {                            //constructor
+    public SecurityConfig(UserService userPrincipalDetailsService) {                            
         this.userDetailsService = userPrincipalDetailsService;
     }
 
@@ -57,18 +54,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //Da acceso a
         auth.authenticationProvider(authenticationProvider());
     }
 
-    //El siguiente método funciona para hacer la autentificación del usuario
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /* http.authorizeRequests()
-        .antMatchers("/persona", "/login")
-        .hasRole ("ADMIN")
-        .antMatchers("/personasN", "/persona", "/","/login") 
-        .hasAnyRole("USER", "VENDEDOR", "ADMIN") 
-        .anyRequest().authenticated() 
-        .and() 
-        .formLogin();  
-         */
+     
 
         http.authorizeRequests()
                 .antMatchers("/admin", "/login","/historiales","/compraR",
@@ -82,9 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //Da acceso a
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll().defaultSuccessUrl("/home", true);           //A cual ruta dirije el login y si es valido redirijalo a "/home".
-    }
-//E1 siguiente metodo funciona parsa realizar la autorización de accesos 
-//i18n 
+    } 
     
     
 
