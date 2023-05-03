@@ -1,24 +1,24 @@
 package com.proyecto.entity;
 
-import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 @Entity
 @Table(name = "partido")
 public class Partido implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+    @Column(name = "nombre")
     private String nombre;
+    @Column(name = "fecha")
     private String fecha;
+    @Column(name = "hora")
     private String hora;
+    @Column(name = "ubicacion")
     private String ubicacion;
+    @Column(name = "descripcion")
     private String descripcion;
+    @Column(name = "imagen")
     private String imagen;
 
     public long getId() {
